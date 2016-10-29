@@ -151,6 +151,30 @@
 </body>
 </html>
 <script>
+	function rota(obj){
+		var d=0;
+		obj.addEventListener('touchstart',function(ev){
+			var x1=ev.targetTouches[0].pageX-ev.targetTouches[1].pageX;
+			var y1=ev.targetTouches[0].pageY-ev.targetTouches[1].pageY;
+
+			var deg=Math.atan2(y1,x1)*180/Math.PI-d;
+			function move(ev){
+				var x2=ev.targetTouches[0].pageX-ev.targetTouches[1].pageX;
+				var y2=ev.targetTouches[0].pageY-ev.targetTouches[1].pageY;
+				var deg2=Math.atan2(y2,x2)*180/Math.PI;
+
+				d=deg2-deg;
+				obj.style.transform='rotate('+d+'deg)';
+			}
+			function end(){
+				document.removeEventListener('touchmove',move,false);
+				document.removeEventListener('touchend',end,false);
+			}
+			document.addEventListener('touchmove',move,false);
+			document.addEventListener('touchend',end,false);
+			ev.preventDefault();
+		},false)
+	}
 	function getPos(obj){
 		var l=0;
 		var t=0;
@@ -209,6 +233,7 @@
 		var aLi = document.getElementsByTagName('li');
 		for(var i = 0; i<aLi.length; i++){
 			drag(aLi[i]);
+			rota(aLi[i]);
 		}
 	},false);
 	var cMove = {
