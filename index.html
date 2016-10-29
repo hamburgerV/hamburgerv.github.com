@@ -1,76 +1,252 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>无标题文档</title>
-<style>
-div{ width:700px; height:400px; background:url(img/1.jpg) no-repeat; background-size:700px 400px; position:relative; margin:50px auto;}
-div span{ width:70px; height:80px; position:absolute; background:url(img/1.jpg) no-repeat; background-size:700px 400px; text-align:center; line-height:80px; color:#fff; font-weight:bold;}
-</style>
-<script src="js/js.js"></script>
 <script>
-window.onload = function(){
-	var oBox = document.getElementById('box');
-	var oBtn = document.getElementById('btn');
-	
-	for(var i = 0; i<5; i++){
-		for(var j=0; j<10; j++){
-			var oSpan = document.createElement('span');
-			oSpan.i = i;
-			oSpanj = j
-			oSpan.ij = i+j;
-			oSpan.style.backgroundPosition = -j*70+'px '+-i*80+'px';
-			oSpan.style.left = j*70+'px';
-			oSpan.style.top = i*80+'px';
-			
-			oBox.appendChild(oSpan);
-		}
+(function(){
+	function setFont(){
+		document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';
 	}
-	var aSpan = oBox.children;
-	var iNow = 1;
-	var bOk = true;
-	
-	oBtn.onclick = function(){
-		show()
-		
-	};
-	//var arr = [200*(9-aSpan[index].ij),'200*(aSpan[index].ij'];
-	function show(){
-		if(!bOk)return;
-		var count = 0;
-		bOk = false
-		iNow++;
-		oBox.style.backgroundImage = 'url(img/'+iNow+'.jpg)';
-		for(var i = 0; i<aSpan.length; i++){
-			;(function(index){
-				setTimeout(function(){
-					move(aSpan[index],{"opacity":0},{"fn":function(){
-						count++;
-						if(count == aSpan.length){
-							bOk = true;
-						}
-						aSpan[index].style.opacity = 1;
-						aSpan[index].style.backgroundImage = 'url(img/'+iNow+'.jpg)';
-						show();
-					}});
-					
-				},200*(13-aSpan[index].ij));
-					
-			})(i);
-			
-		}
-	}
-// 200*(9-aSpan[index].ij) ,200*(aSpan[index].ij)
-
-
-
-};
+	setFont();
+	window.addEventListener('resize',setFont,false);
+})();
 </script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		html,body{
+			width: 100%;
+			background:#000;
+		}
+		#box{
+			width: 90%;
+			height: 10rem;
+			background:#fff;
+			margin: 0.3rem auto;
+			position: relative;
+		}
+		.wcQ{
+			width: 4.8rem;
+			height:0.16rem;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: #000;
+		}
+		.srow{
+			width: 2.5rem;
+			height: 0.03rem;
+			background: #000;
+			position: absolute;
+		}
+		.sr1{
+			bottom: 1.4rem;
+			left: 0;
+		}
+		.sr2{
+			bottom: 4.03rem;
+			left: 0;
+		}
+		.oUl{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.oUl li{
+			position: absolute;
+			text-align: center;
+			font-size: 12px;
+		}
+		.oUl .chuang{
+			width: 3.22rem;
+			height: 2.4rem;
+			background: red;
+			top: 0;
+			left:0;
+		}
+		.yigui{
+			background: yellow;
+			width: 1.7rem;
+			height: 0.7rem;
+			top: 2.4rem;
+			left:0;
+		}
+		.fanzhuo{
+			background: green;
+			width: 1.1rem;
+			height:1.1rem;
+			top: 3.1rem;
+			left:0;
+		}
+		.bingxiang{
+			background: blue;
+			width: 0.7rem;
+			height: 0.7rem;
+			top: 4.2rem;
+			left:0;
+		}
+		.diannaozhuo{
+			width: 1.9rem;
+			height: 0.9rem;
+			background: gray;
+			top: 4.9rem;
+			left: 0;
+		}
+		.zahuogui{
+			width: 1.4rem;
+			height: 0.6rem;
+			background: #c00;
+			top: 5.9rem;
+			left: 0;
+		}
+		.xiejia{
+			width: 0.8rem;
+			height: 0.48rem;
+			background: #08c;
+			top: 6.5rem;
+			left: 0;
+		}
+		.chufang_1{
+			width: 1.12rem;
+			height: 0.72rem;
+			background: #dcdcdc;
+			top: 7.08rem;
+			left: 0;
+		}
+		.chufang_2{
+			width: 1.12rem;
+			height: 0.85rem;
+			background: #c00;
+			top: 7.8rem;
+			left: 0;
+		}
+	</style>
 </head>
-
 <body>
-	<input type="button" value="按钮" id="btn"/>
-    <div id="box">
-    </div>
+	<div id="box">
+		<div class="wcQ"></div>
+		<div class="srow sr1"></div>
+		<div class="srow sr2"></div>
+	</div>
+	<ul class="oUl">
+		<li class="chuang">床</li>
+		<li class="yigui">衣柜</li>
+		<li class="fanzhuo">饭桌</li>
+		<li class="bingxiang">冰箱</li>
+		<li class="diannaozhuo">电脑桌</li>
+		<li class="zahuogui">杂货柜</li>
+		<li class="xiejia">鞋架</li>
+		<li class="chufang_1">厨房桌1</li>
+		<li class="chufang_2">厨房桌2</li>
+	</ul>
 </body>
 </html>
+<script>
+	function getPos(obj){
+		var l=0;
+		var t=0;
+		while(obj){
+			l+=obj.offsetLeft;
+			t+=obj.offsetTop;
+			obj=obj.offsetParent;
+		}
+		return {left:l,top:t};
+	}
+	function drag(obj){
+		var x=0;
+		var y=0;
+		var w=obj.offsetWidth;
+		var h=obj.offsetHeight;
+
+		var cW=document.documentElement.clientWidth;
+		var cH=document.documentElement.clientHeight;
+		obj.addEventListener('touchstart',function(ev){
+			var id=ev.targetTouches[0].identifier;
+			var startX=ev.targetTouches[0].pageX-x;
+			var startY=ev.targetTouches[0].pageY-y;
+
+			function move(ev){
+				if(ev.targetTouches[0].identifier==id){
+					x=ev.targetTouches[0].pageX-startX;
+					y=ev.targetTouches[0].pageY-startY;
+
+					if(x<-getPos(obj).left){
+						x=-getPos(obj).left;
+					}
+					if(y<-getPos(obj).top){
+						y=-getPos(obj).top;
+					}
+					if(x>cW-w-getPos(obj).left){
+						x=cW-w-getPos(obj).left;
+					}
+					if(y>cH-h-getPos(obj).top){
+						y=cH-h-getPos(obj).top;
+					}
+					obj.style.WebkitTransform='translate('+x+'px,'+y+'px)';
+				}
+			}
+			function end(ev){
+				if(ev.changedTouches[0].identifier==id){
+					document.removeEventListener('touchend',end,false);
+					document.removeEventListener('touchmove',move,false);
+				}
+			}
+			document.addEventListener('touchmove',move,false);
+			document.addEventListener('touchend',end,false)
+			ev.preventDefault();
+		},false);
+	}
+	window.addEventListener('DOMContentLoaded',function(){
+		var aLi = document.getElementsByTagName('li');
+		for(var i = 0; i<aLi.length; i++){
+			drag(aLi[i]);
+		}
+	},false);
+	var cMove = {
+		"init":function(){
+			this.cCli();
+		},
+		"cCli":function(){
+			var aLi = document.getElementsByTagName('li');
+			for(var i = 0; i<aLi.length; i++){
+				aLi[i].onmousedown = function(ev){
+					var oEvent = ev || event;
+					var x = oEvent.clientX - this.offsetLeft;
+					var y = oEvent.clientY - this.offsetTop;
+					var _this = this;
+					document.onmousemove = function(ev){
+						var oEvent = ev || event;
+						var l = oEvent.clientX - x;
+						var t = oEvent.clientY - y;
+						_this.style.left = l+'px';
+						_this.style.top = t +'px';
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						document.onmouseup = null;
+					}
+				}
+			}
+		},
+		"move":function(ev,obj){
+			
+			obj.css({
+				"top":t,
+				"left":l
+			})
+		},
+		"up":function(){
+
+		}
+	};
+	//cMove.init();
+</script>
